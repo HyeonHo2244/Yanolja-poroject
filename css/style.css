@@ -354,8 +354,10 @@ main { width: 100%; }
   z-index: 10;
 }
 
-.slider-btn.prev { left: -22px; }
-.slider-btn.next { right: -22px; }
+/* 버튼 위치를 컨테이너 안쪽으로 변경 */
+.slider-btn.prev { left: 10px; }
+.slider-btn.next { right: 10px; }
+
 .slider-btn:hover { background-color: #fff; }
 .slider-btn.disabled { opacity: 0.4; cursor: not-allowed; }
 
@@ -464,8 +466,8 @@ copyright {
     font-size: 18px;
   }
 
-  .slider-btn.prev { left: -15px; }
-  .slider-btn.next { right: -15px; }
+  .slider-btn.prev { left: 5px; }
+  .slider-btn.next { right: 5px; }
 
   .footer-links li {
     margin: 0 8px;
@@ -713,4 +715,51 @@ copyright {
     padding: 10px 15px 12px;
     font-size: 13px;
   }
+}
+
+/* =================================================================
+   반응형 슬라이더 문제 수정을 위한 추가 코드 (2025-08-04)
+   ================================================================= */
+
+/*
+ * 슬라이더 컨테이너에 overflow: hidden을 직접 적용하여
+ * 자식 요소가 밖으로 나가는 것을 확실하게 방지합니다.
+ */
+.item-slider-container {
+    overflow: hidden;
+}
+
+/*
+ * 모바일 화면(480px 이하)에서 슬라이더 아이템 스타일을 다시 한번 명확하게 정의합니다.
+ * flex-basis를 사용하여 너비를 지정하고, 좌우 패딩을 추가하여 아이템 간 최소 간격을 확보합니다.
+ * box-sizing을 다시 선언하여 패딩이 너비 계산에 포함되도록 보장합니다.
+ */
+@media (max-width: 480px) {
+    .item {
+        flex: 0 0 50%; /* 한 줄에 2개의 아이템이 보이도록 너비를 50%로 설정 */
+        max-width: 50%;
+        padding: 0 8px; /* 아이템 좌우에 약간의 여백을 줌 */
+        box-sizing: border-box; /* 패딩과 테두리를 너비에 포함시킴 */
+    }
+
+    /*
+     * 슬라이더 트랙의 좌우 마진을 음수 값으로 설정하여
+     * 첫 번째와 마지막 아이템의 바깥쪽 여백을 제거하고,
+     * 아이템들이 화면에 꽉 차 보이도록 만듭니다.
+     */
+    .item-slider-track {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/*
+ * 더 작은 모바일 화면(360px 이하)을 위한 추가 규칙.
+ * 아이템을 한 개씩만 보여주어 가독성을 높입니다.
+ */
+@media (max-width: 360px) {
+    .item {
+        flex: 0 0 100%; /* 한 줄에 1개의 아이템만 보이도록 너비를 100%로 설정 */
+        max-width: 100%;
+    }
 }

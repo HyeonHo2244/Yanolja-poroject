@@ -6,12 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     setupSearchButtonAlert();
     loadAndRenderDynamicData();
     setupStickyHeader();
-    setupSmoothScrollLinks(); // 새로운 함수 호출 추가
+    setupSmoothScrollLinks();
 });
 
 /**
  * 사이드바(서랍 메뉴) 기능을 초기화하고 이벤트를 설정합니다.
- * 햄버거 버튼 클릭 시 사이드바를 열고, 닫기 버튼 또는 오버레이 클릭 시 닫습니다.
  */
 function initializeSidenav() {
     const openButton = document.getElementById('open-btn');
@@ -19,26 +18,18 @@ function initializeSidenav() {
     const sideNavigation = document.getElementById('sidenav');
     const overlay = document.getElementById('sidenav-overlay');
 
-    // 필수 요소가 없으면 함수 실행 중단
     if (!openButton || !closeButton || !sideNavigation || !overlay) return;
 
-    /**
-     * 사이드바를 엽니다.
-     */
     const openNav = () => {
         sideNavigation.style.left = '0';
         overlay.classList.add('active');
     };
 
-    /**
-     * 사이드바를 닫습니다.
-     */
     const closeNav = () => {
         sideNavigation.style.left = '-280px';
         overlay.classList.remove('active');
     };
 
-    // 이벤트 리스너 연결
     openButton.addEventListener('click', openNav);
     closeButton.addEventListener('click', closeNav);
     overlay.addEventListener('click', closeNav);
@@ -46,7 +37,6 @@ function initializeSidenav() {
 
 /**
  * 검색 버튼에 간단한 알림 기능을 설정합니다.
- * 실제 검색 기능은 백엔드 연동이 필요합니다.
  */
 function setupSearchButtonAlert() {
     const searchButton = document.querySelector('.search-box button');
@@ -56,46 +46,24 @@ function setupSearchButtonAlert() {
 }
 
 /**
- * 페이지에 필요한 모든 동적 데이터를 로드하고 해당 섹션에 렌더링을 지시합니다.
- * 이 함수는 data.json 파일에서 데이터를 가져오지만, 실제 서비스에서는 백엔드 API를 통해 데이터를 받아와야 합니다.
+ * 동적 데이터를 로드하고 각 슬라이더를 설정합니다.
  */
 function loadAndRenderDynamicData() {
-    // TODO: 백엔드 API 엔드포인트로 변경 필요
-    // 예시: fetch('/api/data')
     fetch('data.json')
         .then(response => {
             if (!response.ok) {
-                // HTTP 응답이 성공적이지 않을 경우 에러 발생
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            const itemsPerPage = 5; // 모든 슬라이더에 표시할 아이템 수 설정
-
-            // 각 데이터 카테고리에 대해 슬라이더를 설정합니다.
-            // 백엔드 개발자는 이 데이터 구조를 참고하여 API 응답을 구성할 수 있습니다.
-            if (data.recommendItems) {
-                setupItemSlider('recommend-slider', data.recommendItems, itemsPerPage);
-            }
-            if (data.trendingDestinations) {
-                setupItemSlider('trending-slider', data.trendingDestinations, itemsPerPage);
-            }
-            if (data.amazingDeals) {
-                setupItemSlider('deal-slider', data.amazingDeals, itemsPerPage);
-            }
-            if (data.hotLeisure) {
-                setupItemSlider('leisure-slider', data.hotLeisure, itemsPerPage);
-            }
-            if (data.hotPerformances) {
-                setupItemSlider('performance-slider', data.hotPerformances, itemsPerPage);
-            }
-            if (data.neighborhoodHotels) {
-                setupItemSlider('neighborhood-slider', data.neighborhoodHotels, itemsPerPage);
-            }
-            if (data.monthlyLeisure) {
-                setupItemSlider('monthly-leisure-slider', data.monthlyLeisure, itemsPerPage);
-            }
+            if (data.recommendItems) setupItemSlider('recommend-slider', data.recommendItems);
+            if (data.trendingDestinations) setupItemSlider('trending-slider', data.trendingDestinations);
+            if (data.amazingDeals) setupItemSlider('deal-slider', data.amazingDeals);
+            if (data.hotLeisure) setupItemSlider('leisure-slider', data.hotLeisure);
+            if (data.hotPerformances) setupItemSlider('performance-slider', data.hotPerformances);
+            if (data.neighborhoodHotels) setupItemSlider('neighborhood-slider', data.neighborhoodHotels);
+            if (data.monthlyLeisure) setupItemSlider('monthly-leisure-slider', data.monthlyLeisure);
         })
         .catch(error => {
             console.error('데이터 로드 및 렌더링 중 오류 발생:', error);
@@ -103,18 +71,16 @@ function loadAndRenderDynamicData() {
 }
 
 /**
- * 지정된 컨테이너에 아이템 슬라이더를 생성하고 모든 기능을 설정합니다.
- * @param {string} containerId - 슬라이더가 렌더링될 부모 요소의 DOM ID.
- * @param {Array<Object>} items - 슬라이더에 표시할 아이템 데이터 배열. 각 아이템은 img, title, description 속성을 포함해야 합니다.
- * @param {number} itemsPerPage - 슬라이더에 한 번에 보여줄 아이템의 수.
+ * 반응형 슬라이더 기능을 설정하는 새로운 함수입니다.
+ * @param {string} containerId - 슬라이더 컨테이너의 ID
+ * @param {Array<Object>} items - 슬라이더에 표시할 아이템 데이터 배열
  */
-function setupItemSlider(containerId, items, itemsPerPage) {
-    const containerElement = document.getElementById(containerId);
-    // 컨테이너 요소가 없거나 아이템이 없으면 함수 실행 중단
-    if (!containerElement || items.length === 0) return;
+function setupItemSlider(containerId, items) {
+    const container = document.getElementById(containerId);
+    if (!container || !items || items.length === 0) return;
 
     // 슬라이더의 기본 HTML 구조를 생성합니다.
-    containerElement.innerHTML = `
+    container.innerHTML = `
         <div class="item-slider-viewport">
             <div class="item-slider-track">
                 ${items.map(item => `
@@ -130,63 +96,81 @@ function setupItemSlider(containerId, items, itemsPerPage) {
                 `).join('')}
             </div>
         </div>
-        <button class="slider-btn prev disabled">&#10094;</button>
+        <button class="slider-btn prev" disabled>&#10094;</button>
         <button class="slider-btn next">&#10095;</button>
     `;
 
-    const trackElement = containerElement.querySelector('.item-slider-track');
-    const previousButton = containerElement.querySelector('.prev');
-    const nextButton = containerElement.querySelector('.next');
-    const totalItems = items.length;
-    // 슬라이더가 이동할 수 있는 최대 인덱스 (마지막 페이지)
-    const maxIndex = totalItems - itemsPerPage;
-    let currentIndex = 0; // 현재 슬라이더의 시작 인덱스
+    const track = container.querySelector('.item-slider-track');
+    const prevBtn = container.querySelector('.prev');
+    const nextBtn = container.querySelector('.next'); // 오타 수정: 'next' -> '.next'
+    const allItems = container.querySelectorAll('.item');
+    
+    let currentIndex = 0;
 
-    /**
-     * 슬라이더의 위치를 업데이트하고 버튼의 활성화/비활성화 상태를 조절합니다.
-     */
-    function updateSliderPosition() {
-        // 현재 인덱스에 따라 track 요소를 X축으로 이동시킵니다.
-        const offset = currentIndex * (100 / itemsPerPage);
-        trackElement.style.transform = `translateX(-${offset}%)`;
-        updateNavigationButtons();
+    function updateSliderState() {
+        const firstItem = allItems[0];
+        if (!firstItem) return;
+
+        const itemWidth = firstItem.offsetWidth;
+        if (itemWidth === 0) return; // 너비가 0이면 계산하지 않음
+
+        const containerWidth = container.offsetWidth;
+        const itemsPerPage = Math.round(containerWidth / itemWidth);
+        const maxIndex = Math.max(0, items.length - itemsPerPage);
+
+        // 현재 인덱스가 최대치를 넘지 않도록 조정
+        if (currentIndex > maxIndex) {
+            currentIndex = maxIndex;
+        }
+
+        // 픽셀 기반으로 정확한 이동 거리 계산
+        const offset = currentIndex * itemWidth;
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // 버튼 활성화/비활성화 상태 업데이트
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex >= maxIndex;
     }
 
-    /**
-     * 슬라이더 네비게이션 버튼(이전/다음)의 활성화/비활성화 상태를 업데이트합니다.
-     */
-    function updateNavigationButtons() {
-        previousButton.classList.toggle('disabled', currentIndex === 0);
-        nextButton.classList.toggle('disabled', currentIndex >= maxIndex);
-    }
+    nextBtn.addEventListener('click', () => {
+        const itemWidth = allItems[0].offsetWidth;
+        const itemsPerPage = Math.round(container.offsetWidth / itemWidth);
+        const maxIndex = Math.max(0, items.length - itemsPerPage);
 
-    // 다음 버튼 클릭 이벤트 리스너
-    nextButton.addEventListener('click', () => {
+        // 한 칸씩 이동
         if (currentIndex < maxIndex) {
             currentIndex++;
-            updateSliderPosition();
         }
+        updateSliderState();
     });
 
-    // 이전 버튼 클릭 이벤트 리스너
-    previousButton.addEventListener('click', () => {
+    prevBtn.addEventListener('click', () => {
+        // 한 칸씩 이동
         if (currentIndex > 0) {
             currentIndex--;
-            updateSliderPosition();
         }
+        updateSliderState();
     });
 
-    // 초기 슬라이더 위치 및 버튼 상태 설정
-    updateSliderPosition();
+    // 창 크기가 변경될 때 슬라이더 상태를 다시 계산
+    window.addEventListener('resize', updateSliderState);
+
+    // 이미지가 모두 로드된 후 정확한 계산을 위해, load 이벤트 사용
+    window.addEventListener('load', () => {
+        setTimeout(updateSliderState, 100); // 약간의 지연 후 최종 계산
+    });
+    
+    // 초기 로드 시에도 한 번 실행
+    setTimeout(updateSliderState, 100);
 }
 
 /**
- * 스크롤 시 헤더를 고정하는 기능을 설정합니다.
- * 사용자가 일정량 스크롤하면 헤더가 상단에 고정됩니다.
+ * 스크롤 시 헤더를 상단에 고정하는 기능을 설정합니다.
  */
 function setupStickyHeader() {
     const headerElement = document.querySelector('header');
-    const scrollActivationThreshold = 100; // 헤더가 고정될 스크롤 임계값 (px)
+    if (!headerElement) return;
+    const scrollActivationThreshold = 100;
 
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > scrollActivationThreshold) {
@@ -198,45 +182,27 @@ function setupStickyHeader() {
 }
 
 /**
- * 사이드바 및 기타 내부 링크에 부드러운 스크롤 기능을 설정합니다.
- * #으로 시작하는 모든 링크에 대해 클릭 시 해당 섹션으로 부드럽게 스크롤 이동합니다.
+ * 내부 링크(#)에 부드러운 스크롤 기능을 설정합니다.
  */
 function setupSmoothScrollLinks() {
-    const sidebarLinks = document.querySelectorAll('#sidenav a[href^="#"]');
-    const allPageLinks = document.querySelectorAll('a[href^="#"]');
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            // href가 #뿐이거나 비어있으면 아무것도 하지 않음
+            if (!href || href.length <= 1) return;
 
-    // 사이드바 링크에 이벤트 리스너 추가
-    sidebarLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            console.log('Sidebar link clicked:', this.getAttribute('href')); // 디버깅을 위한 로그 추가
-            event.preventDefault(); // 기본 앵커 동작 방지
-            const targetId = this.getAttribute('href').substring(1); // # 제거
-            const targetElement = document.getElementById(targetId);
+            e.preventDefault();
+            const targetElement = document.getElementById(href.substring(1));
 
             if (targetElement) {
                 targetElement.scrollIntoView({ behavior: 'smooth' });
-                // 사이드바 닫기
-                document.getElementById('sidenav').style.left = '-280px';
-                document.getElementById('sidenav-overlay').classList.remove('active');
+
+                // 링크가 사이드바 내부에 있다면, 사이드바를 닫음
+                if (this.closest('#sidenav')) {
+                    document.getElementById('sidenav').style.left = '-280px';
+                    document.getElementById('sidenav-overlay').classList.remove('active');
+                }
             }
         });
-    });
-
-    // 페이지 내 다른 # 링크에도 부드러운 스크롤 적용 (선택 사항)
-    allPageLinks.forEach(link => {
-        // 사이드바 링크는 위에서 처리했으므로 제외
-        if (!link.closest('#sidenav')) {
-            link.addEventListener('click', function(event) {
-                const href = this.getAttribute('href');
-                if (href && href.startsWith('#') && href.length > 1) {
-                    event.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        }
     });
 }
