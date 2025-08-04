@@ -1,0 +1,86 @@
+{
+  "recommendItems": [
+    { "img": "https://via.placeholder.com/400x300/ff6b6b/fff?text=1", "title": "강릉 특가 호텔", "description": "동해 바다 바로 앞" },
+    { "img": "https://via.placeholder.com/400x300/f0e68c/333?text=2", "title": "가평 인기 펜션", "description": "개별 수영장 완비" },
+    { "img": "https://via.placeholder.com/400x300/87ceeb/fff?text=3", "title": "제주 레저 특가", "description": "짜릿한 액티비티" },
+    { "img": "https://via.placeholder.com/400x300/98fb98/333?text=4", "title": "경주 한옥 리조트", "description": "고즈넉한 휴식" },
+    { "img": "https://via.placeholder.com/400x300/dda0dd/fff?text=5", "title": "양평 감성 글램핑", "description": "별이 쏟아지는 밤" },
+    { "img": "https://via.placeholder.com/400x300/ffcc99/333?text=6", "title": "홍대 파티룸 모텔", "description": "친구들과 즐거운 하룻밤" },
+    { "img": "https://via.placeholder.com/400x300/bada55/fff?text=7", "title": "부산 오션뷰 호텔", "description": "해운대 중심" },
+    { "img": "https://via.placeholder.com/400x300/7fffd4/333?text=8", "title": "속초 풀빌라", "description": "프라이빗한 휴가" },
+    { "img": "https://via.placeholder.com/400x300/d2691e/fff?text=9", "title": "여수 낭만 게스트하우스", "description": "밤바다와 함께" },
+    { "img": "https://via.placeholder.com/400x300/6495ed/fff?text=10", "title": "서울 호캉스 특가", "description": "도심 속 완벽한 휴식" }
+  ],
+  "trendingDestinations": [
+    { "img": "https://via.placeholder.com/400x300/4682b4/fff?text=Jeju", "title": "제주도", "description": "언제나 사랑받는 여행지" },
+    { "img": "https://via.placeholder.com/400x300/3cb371/fff?text=Busan", "title": "부산", "description": "바다와 도시의 조화" },
+    { "img": "https://via.placeholder.com/400x300/cd5c5c/fff?text=Sokcho", "title": "속초", "description": "설악산과 동해를 한번에" },
+    { "img": "https://via.placeholder.com/400x300/ffa07a/333?text=Gyeongju", "title": "경주", "description": "천년고도의 멋" },
+    { "img": "https://via.placeholder.com/400x300/20b2aa/fff?text=Yeosu", "title": "여수", "description": "아름다운 밤바다" },
+    { "img": "https://via.placeholder.com/400x300/9370db/fff?text=Gangneung", "title": "강릉", "description": "커피와 바다의 도시" },
+    { "img": "https://via.placeholder.com/400x300/db7093/fff?text=Paju", "title": "파주", "description": "예술과 자연의 만남" },
+    { "img": "https://via.placeholder.com/400x300/f5deb3/333?text=Jeonju", "title": "전주", "description": "한옥마을의 정취" },
+    { "img": "https://via.placeholder.com/400x300/a0522d/fff?text=Incheon", "title": "인천", "description": "과거와 현재의 공존" },
+    { "img": "https://via.placeholder.com/400x300/6b8e23/fff?text=Daejeon", "title": "대전", "description": "과학과 재미의 도시" }
+  ],
+  "amazingDeals": [
+    { "img": "https://via.placeholder.com/400x300/ff7f50/fff?text=Deal 1", "title": "선착순 9,900원", "description": "오늘만 이 가격" },
+    { "img": "https://via.placeholder.com/400x300/dc143c/fff?text=Deal 2", "title": "마감임박 호텔 특가", "description": "최대 80% 할인" },
+    { "img": "https://via.placeholder.com/400x300/00ced1/fff?text=Deal 3", "title": "렌터카 24시간 딜", "description": "지금 예약하세요" },
+    { "img": "https://via.placeholder.com/400x300/ffd700/333?text=Deal 4", "title": "항공권 얼리버드", "description": "미리 준비하는 휴가" },
+    { "img": "https://via.placeholder.com/400x300/adff2f/333?text=Deal 5", "title": "테마파크 1+1", "description": "친구와 함께" },
+    { "img": "https://via.placeholder.com/400x300/ff00ff/fff?text=Deal 6", "title": "프리미엄 펜션 할인", "description": "럭셔리한 하룻밤" },
+    { "img": "https://via.placeholder.com/400x300/1e90ff/fff?text=Deal 7", "title": "리조트 조식 포함", "description": "든든한 아침" },
+    { "img": "https://via.placeholder.com/400x300/f4a460/fff?text=Deal 8", "title": "캠핑장비 대여", "description": "몸만 오세요" },
+    { "img": "https://via.placeholder.com/400x300/da70d6/fff?text=Deal 9", "title": "KTX 30% 할인", "description": "기차타고 떠나요" },
+    { "img": "https://via.placeholder.com/400x300/eee8aa/333?text=Deal 10", "title": "호캉스 최종가", "description": "쿠폰 중복 적용" }
+  ],
+  "hotLeisure": [
+    { "img": "https://via.placeholder.com/400x300/6a5acd/fff?text=Leisure 1", "title": "가평 수상스키", "description": "여름을 시원하게" },
+    { "img": "https://via.placeholder.com/400x300/deb887/fff?text=Leisure 2", "title": "단양 패러글라이딩", "description": "하늘을 나는 기분" },
+    { "img": "https://via.placeholder.com/400x300/5f9ea0/fff?text=Leisure 3", "title": "제주 서핑 강습", "description": "초보자도 가능" },
+    { "img": "https://via.placeholder.com/400x300/ff69b4/fff?text=Leisure 4", "title": "에버랜드 종일권", "description": "꿈과 환상의 나라" },
+    { "img": "https://via.placeholder.com/400x300/7fff00/333?text=Leisure 5", "title": "짚라인 체험", "description": "짜릿한 스피드" },
+    { "img": "https://via.placeholder.com/400x300/d2b48c/fff?text=Leisure 6", "title": "서울숲 자전거 대여", "description": "도심 속 힐링" },
+    { "img": "https://via.placeholder.com/400x300/00fa9a/333?text=Leisure 7", "title": "롯데월드 매직패스", "description": "기다림 없이 즐기자" },
+    { "img": "https://via.placeholder.com/400x300/c71585/fff?text=Leisure 8", "title": "인천 요트 투어", "description": "바다 위에서의 로망" },
+    { "img": "https://via.placeholder.com/400x300/4169e1/fff?text=Leisure 9", "title": "강원도 래프팅", "description": "급류를 가르며" },
+    { "img": "https://via.placeholder.com/400x300/8b4513/fff?text=Leisure 10", "title": "보령 머드축제", "description": "온몸으로 즐겨봐" }
+  ],
+  "hotPerformances": [
+    { "img": "https://via.placeholder.com/400x300/4b0082/fff?text=Show 1", "title": "뮤지컬 <캣츠>", "description": "감동의 명작" },
+    { "img": "https://via.placeholder.com/400x300/8b0000/fff?text=Show 2", "title": "싸이 흠뻑쇼", "description": "여름의 열기" },
+    { "img": "https://via.placeholder.com/400x300/808000/fff?text=Show 3", "title": "국립현대미술관 특별전", "description": "예술의 향기" },
+    { "img": "https://via.placeholder.com/400x300/008b8b/fff?text=Show 4", "title": "대학로 연극 <옥탑방 고양이>", "description": "스테디셀러" },
+    { "img": "https://via.placeholder.com/400x300/b8860b/fff?text=Show 5", "title": "임영웅 콘서트", "description": "전 세대의 아이돌" },
+    { "img": "https://via.placeholder.com/400x300/000080/fff?text=Show 6", "title": "팀랩: 라이프 전시", "description": "인생샷 명소" },
+    { "img": "https://via.placeholder.com/400x300/2f4f4f/fff?text=Show 7", "title": "오페라의 유령", "description": "불멸의 사랑 이야기" },
+    { "img": "https://via.placeholder.com/400x300/800080/fff?text=Show 8", "title": "성시경 축가 콘서트", "description": "달콤한 목소리" },
+    { "img": "https://via.placeholder.com/400x300/ff4500/fff?text=Show 9", "title": "난타(NANTA)", "description": "신나는 리듬" },
+    { "img": "https://via.placeholder.com/400x300/2e8b57/fff?text=Show 10", "title": "태양의 서커스", "description": "환상의 무대" }
+  ],
+  "neighborhoodHotels": [
+    { "img": "https://via.placeholder.com/400x300/fa8072/333?text=Stay 1", "title": "강남 부티크 호텔", "description": "역삼역 5분 거리" },
+    { "img": "https://via.placeholder.com/400x300/20b2aa/fff?text=Stay 2", "title": "홍대 디자인 호텔", "description": "연남동 핫플레이스" },
+    { "img": "https://via.placeholder.com/400x300/778899/fff?text=Stay 3", "title": "명동 레지던스", "description": "쇼핑과 관광의 중심" },
+    { "img": "https://via.placeholder.com/400x300/b0c4de/333?text=Stay 4", "title": "종로 한옥 스테이", "description": "북촌의 정취" },
+    { "img": "https://via.placeholder.com/400x300/9acd32/333?text=Stay 5", "title": "잠실 호수뷰 호텔", "description": "롯데월드 인근" },
+    { "img": "https://via.placeholder.com/400x300/ba55d3/fff?text=Stay 6", "title": "이태원 루프탑 펜션", "description": "이국적인 분위기" },
+    { "img": "https://via.placeholder.com/400x300/ff1493/fff?text=Stay 7", "title": "성수동 감성 숙소", "description": "힙스터들의 성지" },
+    { "img": "https://via.placeholder.com/400x300/00bfff/fff?text=Stay 8", "title": "여의도 비즈니스 호텔", "description": "한강공원 접근성" },
+    { "img": "https://via.placeholder.com/400x300/f08080/fff?text=Stay 9", "title": "인사동 전통 료칸", "description": "도심 속 작은 일본" },
+    { "img": "https://via.placeholder.com/400x300/66cdaa/333?text=Stay 10", "title": "가로수길 편집샵 호텔", "description": "트렌드의 중심" }
+  ],
+  "monthlyLeisure": [
+    { "img": "https://via.placeholder.com/400x300/ffc0cb/333?text=Rec 1", "title": "8월의 워터파크", "description": "더위를 날려버려" },
+    { "img": "https://via.placeholder.com/400x300/e6e6fa/333?text=Rec 2", "title": "가을 단풍 트래킹", "description": "설악산 국립공원" },
+    { "img": "https://via.placeholder.com/400x300/fff0f5/333?text=Rec 3", "title": "겨울 눈꽃 축제", "description": "태백산 눈꽃축제" },
+    { "img": "https://via.placeholder.com/400x300/f5fffa/333?text=Rec 4", "title": "봄꽃 나들이", "description": "진해 군항제" },
+    { "img": "https://via.placeholder.com/400x300/f0fff0/333?text=Rec 5", "title": "여름 해변 캠핑", "description": "동해안 해수욕장" },
+    { "img": "https://via.placeholder.com/400x300/fafad2/333?text=Rec 6", "title": "겨울 온천 여행", "description": "강원도 평창" },
+    { "img": "https://via.placeholder.com/400x300/e0ffff/333?text=Rec 7", "title": "가을 와인 축제", "description": "영동 와인터널" },
+    { "img": "https://via.placeholder.com/400x300/ffe4e1/333?text=Rec 8", "title": "봄철 벚꽃 축제", "description": "여의도 윤중로" },
+    { "img": "https://via.placeholder.com/400x300/fffacd/333?text=Rec 9", "title": "여름 야간 축제", "description": "부산 광안리" },
+    { "img": "https://via.placeholder.com/400x300/f0ffff/333?text=Rec 10", "title": "겨울 스키 여행", "description": "알펜시아 리조트" }
+  ]
+}

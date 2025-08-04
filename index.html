@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야놀자 클론코딩</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ==================== Sidenav (Drawer Menu) ==================== -->
+    <!-- Sidenav 오버레이: 사이드 메뉴가 열렸을 때 배경을 어둡게 처리 -->
+    <div id="sidenav-overlay" class="sidenav-overlay"></div>
+
+    <!-- Sidenav (서랍 메뉴): 화면 왼쪽에서 나타나는 메뉴 -->
+    <div id="sidenav" class="sidenav">
+        <a href="javascript:void(0)" class="close-btn" id="close-btn">&times;</a>
+        <a href="#">해외숙소</a>
+        <a href="#">국내숙소</a>
+        <a href="#">레저/티켓</a>
+        <a href="#">KTX</a>
+        <a href="#faq-section">자주 묻는 질문</a> <!-- 자주 묻는 질문 링크 추가 -->
+        <hr>
+        <a href="#">로그인</a>
+        <a href="#">내 계정</a>
+    </div>
+
+    <!-- ==================== Header ==================== -->
+    <header>
+        <div class="header-inner">
+            <!-- 햄버거 메뉴 버튼 -->
+            <span class="open-btn" id="open-btn">&#9776;</span>
+            <!-- 로고 -->
+            <h1 class="logo">
+                <a href="#">YANOLJA</a>
+            </h1>
+            <!-- 우측 상단 아이콘 메뉴 -->
+            <div class="header-icons">
+                <a href="#" aria-label="My Menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    <span>마이</span>
+                </a>
+                <a href="#" aria-label="Wishlist">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>찜</span>
+                </a>
+                <a href="#" aria-label="Cart">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span>장바구니</span>
+                </a>
+                <a href="#" aria-label="Recently Viewed">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span>최근 본</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== Sub Navigation (Category Menu) ==================== -->
+    <nav class="sub-nav">
+        <div class="sub-nav-inner">
+            <ul>
+                <li><a href="#"><i>🏨</i><span>모텔</span></a></li>
+                <li><a href="#"><i>🏢</i><span>호텔·리조트</span></a></li>
+                <li><a href="#"><i>🏡</i><span>펜션·풀빌라</span></a></li>
+                <li><a href="#"><i>⭐ </i><span>프리미엄</span></a></li>
+                <li><a href="#"><i>⛺ </i><span>캠핑·글램핑</span></a></li>
+                <li><a href="#"><i>✈️</i><span>항공권</span></a></li>
+                <li><a href="#"><i>🚗</i><span>렌터카</span></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== Main Content Area ==================== -->
+    <main>
+        <!-- 히어로 섹션: 배경 이미지와 검색창 포함 -->
+        <section class="hero">
+            <div class="search-container">
+                <h2>어디로 떠나시나요?</h2>
+                <div class="search-box">
+                    <input type="text" placeholder="여행지나 숙소를 검색해보세요">
+                    <button>검색</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 슬라이더 섹션들: data.json에서 데이터를 로드하여 동적으로 생성 -->
+        <section class="item-section">
+            <h2>추천 상품</h2>
+            <div class="item-slider-container" id="recommend-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>요즘 뜨는 여행지</h2>
+            <div class="item-slider-container" id="trending-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>놀라운특가</h2>
+            <div class="item-slider-container" id="deal-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>국내레저 오늘가장 인기있는 곳</h2>
+            <div class="item-slider-container" id="leisure-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>HOT인기공연/전시</h2>
+            <div class="item-slider-container" id="performance-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>우리동네 인기숙소</h2>
+            <div class="item-slider-container" id="neighborhood-slider"></div>
+        </section>
+
+        <section class="item-section">
+            <h2>이달의 추천 레저</h2>
+            <div class="item-slider-container" id="monthly-leisure-slider"></div>
+        </section>
+
+    </main>
+
+    <!-- ==================== FAQ Section ==================== -->
+    <!-- 자주 묻는 질문 섹션: 사용자들이 자주 묻는 질문과 답변을 아코디언 형태로 제공합니다. -->
+    <section class="faq-section" id="faq-section">
+        <div class="faq-inner">
+            <h2>자주 묻는 질문</h2>
+            <div class="faq-item">
+                <details>
+                    <summary>Q1. 야놀자에서 숙소 예약은 어떻게 하나요?</summary>
+                    <p>A. 원하는 숙소를 검색한 후, 날짜와 인원수를 선택하고 예약하기 버튼을 누르시면 됩니다. 결제까지 완료하시면 예약이 확정됩니다.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Q2. 예약 취소 및 환불 규정은 어떻게 되나요?</summary>
+                    <p>A. 예약 취소 및 환불 규정은 숙소마다 다를 수 있습니다. 예약 시 상세 페이지에서 확인하시거나, 마이페이지의 예약 내역에서 확인하실 수 있습니다.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Q3. 포인트는 어떻게 사용하나요?</summary>
+                    <p>A. 야놀자 포인트는 결제 시 사용하실 수 있습니다. 결제 단계에서 포인트 사용 옵션을 선택하시면 됩니다.</p>
+                </details>
+            </div>
+            <div class="faq-item">
+                <details>
+                    <summary>Q4. 비회원도 예약이 가능한가요?</summary>
+                    <p>A. 네, 비회원도 예약이 가능합니다. 다만, 예약 내역 확인 및 포인트 적립 등 회원 전용 혜택은 받으실 수 없습니다.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== Footer ==================== -->
+    <footer>
+        <div class="footer-inner">
+            <ul class="footer-links">
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#">개인정보처리방침</a></li>
+            </ul>
+            <p class="copyright">&copy; Yanolja Co., Ltd.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript 파일 연결 -->
+    <script src="js/script.js"></script>
+</body>
+</html>
